@@ -1,14 +1,22 @@
 import {Action} from "@reduxjs/toolkit";
-import {ReduxActions} from "../types";
+import {LikeActions, TitleAction, TitleInputOnChange} from "../types";
 
-export function onLikeClicked(): Action<ReduxActions.ON_LIKE_CLICKED> {
+export function onLikeClicked(): Action<LikeActions.ON_LIKE_CLICKED> {
     return {
-        type: ReduxActions.ON_LIKE_CLICKED
+        type: LikeActions.ON_LIKE_CLICKED
     }
 }
 
-export function onDislikeClicked(): Action<ReduxActions.ON_DISLIKE_CLICKED> {
+export function onDislikeClicked(): Action<LikeActions.ON_DISLIKE_CLICKED> {
     return {
-        type: ReduxActions.ON_DISLIKE_CLICKED
+        type: LikeActions.ON_DISLIKE_CLICKED
+    }
+}
+
+export function onTitleInputChanged(input: string): Action<TitleInputOnChange> {
+    return {
+        type: {
+            input: input
+        },
     }
 }

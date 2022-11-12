@@ -1,7 +1,7 @@
 import React, {Dispatch} from 'react'
 import './App.css'
 import {connect} from "react-redux";
-import {ReduxActions, State} from "./types";
+import {LikeActions, State} from "./types";
 import {Action} from "@reduxjs/toolkit";
 import {onLikeClicked, onDislikeClicked} from "./redux/actions";
 
@@ -26,7 +26,7 @@ function mapStateToProps(state: State): Props {
     }
 }
 
-function mapDispatchToProps(dispatch: Dispatch<Action<ReduxActions>>): Props {
+function mapDispatchToProps(dispatch: Dispatch<Action<LikeActions>>): Props {
     return {
         onLikeClicked: () => dispatch(onLikeClicked()),
         onDislikeClicked: () => dispatch(onDislikeClicked())
