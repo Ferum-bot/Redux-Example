@@ -1,7 +1,6 @@
 import React from 'react';
 import Likes from "./likes";
 import image from "./../assets/sea.jpg"
-import store from "./store";
 import './App.css';
 
 function App() {
@@ -11,7 +10,7 @@ function App() {
           <div className="card">
               <div className="card-image">
                   <img src={image} alt="surfing"/>
-                  <Likes store={store}/>
+                  <Likes />
               </div>
           </div>
       </div>

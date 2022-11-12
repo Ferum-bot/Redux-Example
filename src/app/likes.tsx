@@ -1,19 +1,21 @@
 import React, {Dispatch} from 'react'
 import './App.css'
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import {ReduxActions, State} from "./types";
 import {Action} from "@reduxjs/toolkit";
+import {onLikeClicked, onDislikeClicked} from "./redux/actions";
 
 interface Props {
     likes?: number
     onLikeClicked?: () => void
+    onDislikeClicked?: () => void
 }
 
 function Likes(props: Props) {
     return (
         <div className="button-controls">
             <button onClick={props.onLikeClicked}>❤️ {props.likes}</button>
-            <button>Dislike</button>
+            <button onClick={props.onDislikeClicked}>Dislike</button>
         </div>
     )
 }
@@ -26,12 +28,8 @@ function mapStateToProps(state: State): Props {
 
 function mapDispatchToProps(dispatch: Dispatch<Action<ReduxActions>>): Props {
     return {
-        onLikeClicked: () => {
-            const action: Action<ReduxActions> = {
-                type: ReduxActions.ON_LIKE_CLICKED
-            }
-            dispatch(action)
-        }
+        onLikeClicked: () => dispatch(onLikeClicked()),
+        onDislikeClicked: () => dispatch(onDislikeClicked())
     }
 }
 
